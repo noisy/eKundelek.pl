@@ -72,7 +72,7 @@
 
 # Setting to turn on featured images for blog posts. Defaults to False.
 #
-# BLOG_USE_FEATURED_IMAGE = True
+BLOG_USE_FEATURED_IMAGE = True
 
 # If True, the south application will be automatically added to the
 # INSTALLED_APPS setting.
@@ -122,8 +122,8 @@ SITE_ID = 1
 USE_I18N = False
 
 # Make these unique, and don't share it with anybody.
-SECRET_KEY = "a6b81264-cc61-4165-9de1-872b6c65af0660db15f3-fb23-4b7f-bac9-f1ccc0b1e23600d0eab6-aeaf-4726-92ac-d62c7acaaede"
-NEVERCACHE_KEY = "f1404e4b-b3b5-4418-bb15-df01d13a3350fe5890bb-2b82-4a0a-96a0-96b29b1b96df7a3a593f-68d5-4000-a491-ae695445257c"
+SECRET_KEY = "15efbb1e-0f80-4efc-a6ea-daac8ee667b2268cc946-186b-44bc-bdf1-16135d4bff37b6df6ed9-de49-4960-8312-e4dd1c9ff540"
+NEVERCACHE_KEY = "c62b9ced-85aa-45f1-9bbb-9d35be9e2cf3fde16719-8ad7-4ad9-a220-ca7ecc6cd02afd95dd42-953f-4ffd-adbd-ec1463387b05"
 
 # Tuple of IP addresses, as strings, that:
 #   * See debug comments, when DEBUG is true
@@ -178,9 +178,11 @@ DATABASES = {
 #########
 
 import os
+import sys
 
 # Full filesystem path to the project.
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(PROJECT_ROOT, "apps"))
 
 # Name of the directory for the project.
 PROJECT_DIRNAME = PROJECT_ROOT.split(os.sep)[-1]
@@ -224,6 +226,8 @@ TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
 ################
 
 INSTALLED_APPS = (
+    "skin",
+    #"blog",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
