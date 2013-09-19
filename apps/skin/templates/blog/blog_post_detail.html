@@ -28,26 +28,30 @@
                     {{ blog_post.content|richtext_filters|safe }}
                     {% endeditable %}
                     {% endblock %}
-                    <h3>
-                        Similar Posts</h3>  <br />
+
+                    {% block blog_post_detail_related_posts %}
+                    {% if blog_post.related_posts.all %}
+                    <h3>{% trans 'Related posts' %}</h3><br />
                     <p>
-
-                    <i class="icon-ok"></i><a href="#">&nbsp;Lorem ipsum dolor sit enatis. Lorem ipsum dolor sit enatis Lorem ipsum dolor sit</a><br />
-                     <i class="icon-ok"></i><a href="#">&nbsp;Lorem ipsum dolor sit enatis. Lorem ipsum dolor sit enatis Lorem ipsum dolor sit</a><br />
-
+                    {% for post in blog_post.related_posts.all %}
+                        <i class="icon-ok"></i><a href="{{ post.get_absolute_url }}">&nbsp;{{ post.title }}</a><br />
+                    {% endfor %}
                     </p>
-                    <h3>
-                        Tags</h3>
+                    {% endif %}
+                    {% endblock %}
+
+                    {% block blog_post_detail_keywords %}
+                    {% keywords_for blog_post as tags %}
+                    {% if tags %}
+                    <h3>Tags</h3>
                     <p>
-                        <br />
-                        <span class="label label-info"><i href="#" class="icon-tag icon-white"></i><a href="#" style="color: White;">
-                            &nbsp;sql server</a></span> <span class="label label-info"><i class="icon-tag icon-white">
-                            </i><a href="#"  style="color: White;">&nbsp;membership</a></span> <span class="label label-info">
-                                <i class="icon-tag icon-white"></i><a href="#"  style="color: White;">&nbsp;xml document</a></span>
-                        <span class="label label-info"><i class="icon-tag icon-white"></i><a href="#"  style="color: White;">
-                            &nbsp;android</a></span>
+                        {% for tag in tags %}
+                        <span class="label label-info"><i class="icon-tag icon-white"></i><a href="{% url "blog_post_list_tag" tag.slug %}"  style="color: White;">&nbsp;{{ tag }}</a></span>
+                        {% endfor %}
                     </p>
                     <br />
+                    {% endif %}
+                    {% endblock %}
                     <ul class="breadcrumb">
                         <li>Comments </li>
                     </ul>

@@ -126,46 +126,22 @@
                     </div>
                 </div>
                 <br />
+
+                {% block blog_keywords %}
+                {% keywords_for blog.blogpost as tags %}
+                {% if tags %}
                 <div class="well">
-                    <h3>
-                        Tag Cloud</h3>
+                    <h3>{% trans "Tags" %}</h3>
                     <div style="padding-top: 10px;">
-                        <span class="label label-info"><i class="icon-tag icon-white"></i><a href="#"  style="color: White;">
-                            &nbsp;security</a></span> <span class="label label-info"><i class="icon-tag icon-white">
-                            </i><a href="#"  style="color: White;">&nbsp;asp.net</a></span> <span class="label label-info">
-                                <i class="icon-tag icon-white"></i><a href="#"  style="color: White;">&nbsp;mobile</a></span>
-                        <span class="label label-info"><i class="icon-tag icon-white"></i><a href="#"  style="color: White;">
-                            &nbsp;apps</a></span> <span class="label label-info"><i class="icon-tag icon-white">
-                            </i><a href="#"  style="color: White;">&nbsp;iphone</a></span> <span class="label label-info">
-                                <i class="icon-tag icon-white"></i><a href="#"  style="color: White;">&nbsp;sql</a></span>
-                        <span class="label label-info"><i class="icon-tag icon-white"></i><a href="#"  style="color: White;">
-                            &nbsp;android</a></span> <span class="label label-info"><i class="icon-tag icon-white">
-                            </i><a href="#"  style="color: White;">&nbsp;xml</a></span> <span class="label label-info"><i
-                                class="icon-tag icon-white"></i><a href="#"  style="color: White;">&nbsp;.net membership</a></span>
-                        <span class="label label-info"><i class="icon-tag icon-white"></i><a href="#"  style="color: White;">
-                            &nbsp;java</a></span> <span class="label label-info"><i class="icon-tag icon-white">
-                            </i><a href="#"  style="color: White;">&nbsp;windows 7</a></span> <span class="label label-info">
-                                <i class="icon-tag icon-white"></i><a href="#"  style="color: White;">&nbsp;seo</a></span>
-                        <span class="label label-info"><i class="icon-tag icon-white"></i><a href="#"  style="color: White;">
-                            &nbsp;blogging</a></span> <span class="label label-info"><i class="icon-tag icon-white">
-                            </i><a href="#"  style="color: White;">&nbsp;xml</a></span> <span class="label label-info"><i
-                                class="icon-tag icon-white"></i><a href="#"  style="color: White;">&nbsp;interop</a></span>
-                        <span class="label label-info"><i class="icon-tag icon-white"></i><a href="#"  style="color: White;">
-                            &nbsp;apps</a></span> <span class="label label-info"><i class="icon-tag icon-white">
-                            </i><a href="#"  style="color: White;">&nbsp;iphone</a></span> <span class="label label-info">
-                                <i class="icon-tag icon-white"></i><a href="#"  style="color: White;">&nbsp;sql</a></span>
-                        <span class="label label-info"><i class="icon-tag icon-white"></i><a href="#"  style="color: White;">
-                            &nbsp;android</a></span> <span class="label label-info"><i class="icon-tag icon-white">
-                            </i><a href="#"  style="color: White;">&nbsp;.net membership</a></span> <span class="label label-info">
-                                <i class="icon-tag icon-white"></i><a href="#"  style="color: White;">&nbsp;java</a></span>
-                        <span class="label label-info"><i class="icon-tag icon-white"></i><a href="#"  style="color: White;">
-                            &nbsp;windows 7</a></span> <span class="label label-info"><i class="icon-tag icon-white">
-                            </i><a href="#"  style="color: White;">&nbsp;sql</a></span> <span class="label label-info"><i
-                                class="icon-tag icon-white"></i><a href="#"  style="color: White;">&nbsp;membership</a></span>
-                        <span class="label label-info"><i class="icon-tag icon-white"></i><a href="#"  style="color: White;">
-                            &nbsp;xml</a></span>
+                    {% for tag in tags %}
+                        <span class="label label-info"><i class="icon-tag icon-white"></i><a href="{% url "blog_post_list_tag" tag.slug %}"  style="color: White;">
+                                &nbsp;{{ tag }} ({{ tag.item_count }})</a></span> {% comment %}{{ tag.weight }}{% endcomment %}
+                    {% endfor %}
                     </div>
                 </div>
+                {% endif %}
+                {% endblock %}
+
                 <div class="wellll">
                     <div class="row-fluid DivTableDesign headerCerve">
                         <h3>

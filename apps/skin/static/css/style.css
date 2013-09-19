@@ -1464,7 +1464,7 @@ table .span24 {
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url("images/glyphicons-halflings.png");
+  background-image: url("../images/glyphicons-halflings.png");
   background-position: 14px 14px;
   background-repeat: no-repeat;
 }
@@ -1473,7 +1473,7 @@ table .span24 {
   *margin-left: 0;
 }
 .icon-white {
-  background-image: url("images/glyphicons-halflings-white.png");
+  background-image: url("../images/glyphicons-halflings-white.png");
 }
 .icon-glass {
   background-position: 0      0;
@@ -4289,7 +4289,7 @@ pre.prettyprint,
 }
 #footer{
 	position: relative;
-	background:  url(images/header-bg.jpg) repeat top center;
+	background:  url(../images/header-bg.jpg) repeat top center;
 }
 #footer-cols{
 	display: block;
@@ -4329,7 +4329,7 @@ pre.prettyprint,
 	padding-left: 17px;
 	border-top: 1px solid #4a4a4a;
 	border-bottom: 1px solid #000;
-	background: url(images/footer-bullet.png) no-repeat 0px 10px;
+	background: url(../images/footer-bullet.png) no-repeat 0px 10px;
 }
 
 #footer-cols li.col ul li:first-child{ border-top: none; }
@@ -4349,7 +4349,7 @@ pre.prettyprint,
 	font-size: 12px;
 	line-height: 1.5em;
 	line-height: 60px;
-	background:  url(images/bottom-shadow.png) repeat-x;
+	background:  url(../images/bottom-shadow.png) repeat-x;
 }
 
 #bottom #bottom-text{
@@ -4365,7 +4365,7 @@ pre.prettyprint,
 	top: -22px;
 	width: 33px;
 	height: 33px;
-	background: url(images/to-top.png) no-repeat;
+	background: url(../images/to-top.png) no-repeat;
 	cursor: pointer;
 }
 
@@ -4398,12 +4398,12 @@ pre.prettyprint,
 #bottom .social a:hover{
 	background-position: 0px -32px;
 }
-.facebook{ background: url(images/facebook_32.png); }
-.digg{ background: url(images/digg_32.png); }
-.email{ background: url(images/email_32.png); }
-.google{ background: url(images/google_32.png); }
-.twitter{ background: url(images/twitter_32.png); }
-.linkedin{ background: url(images/linkedin_32.png); }
+.facebook{ background: url(../images/facebook_32.png); }
+.digg{ background: url(../images/digg_32.png); }
+.email{ background: url(../images/email_32.png); }
+.google{ background: url(../images/google_32.png); }
+.twitter{ background: url(../images/twitter_32.png); }
+.linkedin{ background: url(../images/linkedin_32.png); }
 
 .Title {color:#0088cc;
   line-height: 27px;
