@@ -1,3 +1,4 @@
+{% load i18n blog_tags %}
     <div id="footer">
         <!-- wrapper-footer -->
         <div class="wrapper">
@@ -15,19 +16,20 @@
                         <li class="page_item"><a href="#">Contact</a></li>
                     </ul>
                 </li>
-                <li class="col">
-                    <h5>
-                        Categories</h5>
-                    <ul>
-                        <li><a href="#">As sit amet quam egesta liberop.Net</a> </li>
-                        <li><a href="#">C# sit amet quam egesta libero .Net</a></li>
-                        <li><a href="#">A sit amet quam egesta liberojax</a></li>
-                        <li><a href="#">SQ sit amet quam egesta libero L</a></li>
-                        <li><a href="#">Mob sit amet quam egesta lib eroile </a></li>
-                        <li><a href="#">Blo sit amet quam egesta libero gging </a></li>
-                        <li><a href="#">SEsit amet quam egesta libero O </a></li>
-                    </ul>
-                </li>
+                {% block blog_categories %}
+                    {% blog_categories as categories %}
+                    {% if categories %}
+                    <li class="col">
+                        <h5>{% trans "Categories" %}</h5>
+                        <ul class="unstyled">
+                            {% for category in categories %}
+                            <li><a href="{% url "blog_post_list_category" category.slug %}">{{ category }}</a> ({{ category.post_count }})</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    {% endif %}
+                {% endblock %}
+
                 <li class="col">
                     <h5>
                         Subscribe</h5>
