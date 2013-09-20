@@ -6,32 +6,79 @@
     <title>Kiazen | Technology Blog </title>
     <link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css" />
     <link href="{% static "css/prettify.css" %}" rel="stylesheet" type="text/css" />
+    <link href="{% static "css/menu.css" %}" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div id="navbar-example" class="navbar navbar-fixed-top">
-        <div class="navbar-inner " style="background-color: #f0fafb">
+      <ul class="menu">
+
+      <li>
+        <a href="http://alpha.spistresci.pl">
+          Spis Treści
+        </a>
+      </li>
+      <li class="act">
+        <a href="/">
+          eKundelek
+        </a>
+      </li>
+      <li>
+        <a href="http://eGazeciarz.pl/">
+          eGazeciarz
+        </a>
+      </li>
+
+      {% if user == None or not user.is_authenticated %}
+      <li id="login" class="menu2 menu2b">
+        <a>
+          ZALOGUJ SIĘ
+        </a>
+      </li>
+      <li id="register" class="menu2 menu2a">
+        <a href="/accounts/register/">
+          ZAREJESTRUJ&nbsp;SIĘ
+        </a>
+      </li>
+      {% else %}
+      <li id="logout" class="menu2 menu2b">
+        <a href="/logout/" style="display: block; width: 100%; height: 100%">
+          WYLOGUJ
+        </a>
+      </li>
+      <li id="account" class="menu2 menu2a">
+        <a style="display: block">
+          {% if user.email == '' %}
+             {{ user.username }}
+          {% else %}
+             {{ user.email }}
+          {% endif %}
+        </a>
+      </li>
+      {% endif %}
+      </ul>
+        <div class="navbar-inner " style="background-color: #3a87ad; border-top-width: 0px">
             <div class="container" style="width: auto;">
-                <a href="index.html"  class="brand" href="#" style="padding-left: 55px;padding-right: 35px;">Blog</a>
+                <a href="/"  class="brand" style="padding: 8px 35px 1px 55px; background-color: #3a87ad; color: #ffffff">Blog</a>
                 <ul class="nav">
                     <!--<li class="active">-->
-                    <li><a href="index.html">Strona domowa</a></li>
-                    <li><a href="#">Czym są e-czytniki?</a></li>
-                    <li><a href="#">Recenzje</a></li>
-                    <li><a href="#">eBooki & Audiobooki</a></li>
-                    <li><a href="#">Gdzie kupić?</a></li>
-                    <li><a href="#">Ciekawostki </a></li>
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Instrukcje obsługi czytników
+                    <li> <a  style="color: #ffffff" href="/" >Strona domowa</a></li>
+                    <li> <a  style="color: #ffffff" href="#">Czym są e-czytniki?</a></li>
+                    <li> <a  style="color: #ffffff" href="#">Recenzje</a></li>
+                    <li> <a  style="color: #ffffff" href="#">eBooki & Audiobooki</a></li>
+                    <li> <a  style="color: #ffffff" href="#">Gdzie kupić?</a></li>
+                    <li> <a  style="color: #ffffff" href="#">Ciekawostki </a></li>
+                    <li class="dropdown"> <a  style="color: #ffffff" href="#" class="dropdown-toggle" data-toggle="dropdown">Instrukcje obsługi czytników
                         <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li class="divider"></li>
-                            <li><a href="#">Asp.Net</a></li>
-                            <li><a href="#">C#.Net</a></li>
-                            <li><a href="#">Ajax</a></li>
+                            <li> <a  style="color: #ffffff" href="#">Asp.Net</a></li>
+                            <li> <a  style="color: #ffffff" href="#">C#.Net</a></li>
+                            <li> <a  style="color: #ffffff" href="#">Ajax</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">SQL</a></li>
+                            <li> <a  style="color: #ffffff" href="#">SQL</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Kontakt</a></li>
+                    <li> <a  style="color: #ffffff" href="#">Kontakt</a></li>
                 </ul>
                 <ul class="nav pull-right">
                     <li id="fat-menu" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -48,8 +95,8 @@
             </div>
         </div>
     </div>
-    <div style="height: 160px; padding-top: 20px; padding-left: 85px; margin-bottom: -30px;">
-        <h1><a href="#"><img src="{% static "images/ekundelek_logo.png" %}" alt="eKundelek.pl" style="width: 300px"/></a></h1>
+    <div style="height: 110px; padding-top: 80px; padding-left: 85px; margin-bottom: 20px;>
+        <h1><a href="/"><img src="{% static "images/ekundelek_logo.png" %}" alt="eKundelek.pl" style="width: 300px"/></a></h1>
     </div>
     <div class="container-fluid">
         <div class="row-fluid">
