@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head id="Head1">
-    <title>Kiazen | Technology Blog </title>
+    <title>eKundelek.pl - najsympatyczniejszy blog o e-czytnikach </title>
     <link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css" />
     <link href="{% static "css/prettify.css" %}" rel="stylesheet" type="text/css" />
     <link href="{% static "css/menu.css" %}" rel="stylesheet" type="text/css" />
@@ -11,22 +11,21 @@
 <body>
     <div id="navbar-example" class="navbar navbar-fixed-top">
       <ul class="menu">
-
-      <li>
+      <!--<li>
         <a href="http://alpha.spistresci.pl">
           Spis Treści
         </a>
-      </li>
+      </li>-->
       <li class="act">
         <a href="/">
           eKundelek
         </a>
       </li>
-      <li>
+      <!--<li>
         <a href="http://eGazeciarz.pl/">
           eGazeciarz
         </a>
-      </li>
+      </li>-->
 
       {% if user == None or not user.is_authenticated %}
       <li id="login" class="menu2 menu2b">
@@ -260,7 +259,7 @@
         <!-- wrapper-bottom -->
         <div class="wrapper">
             <div id="bottom-text">
-                &copy;2012 <a href="#">Kaizen</a> All Rights Resevred. 
+                &copy;2013 <a href="mailto:redakcja@ekundelek.pl">Magdalena i Krzysztof Szumni.</a> Wszelkie prawa zastrzeżone.
             </div>
             <!-- Social -->
             <ul class="social">
